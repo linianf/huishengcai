@@ -2,6 +2,7 @@ package com.hsh.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,8 +27,10 @@ public class Postion {
 	private String remark;
 	// 创建时间
 	@Temporal(TemporalType.TIMESTAMP)
+    @Column(name="create_time")
 	private Date createTime;
 	// 创建人
+    @Column(name="user_id")
 	private int userId;
 
 	public long getId() {

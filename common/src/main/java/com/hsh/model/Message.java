@@ -2,6 +2,7 @@ package com.hsh.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,9 +13,10 @@ import org.hibernate.annotations.Entity;
 
 @Entity
 public class Message {
+
     // 主键
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     // 消息标题
@@ -34,10 +36,12 @@ public class Message {
 
     // 推送时间
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "push_time")
     private Date pushTime;
 
     // 创建时间
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "create_time")
     private Date createTime;
 
     // 状态
@@ -50,6 +54,7 @@ public class Message {
     public static final int STATE_SENT = 1;
 
     // 创建人
+    @Column(name = "user_id")
     private long userId;
 
     public long getId() {
@@ -131,8 +136,9 @@ public class Message {
 
         this.userId = userId;
     }
-    
-    public boolean isImmediately(){
+
+    public boolean isImmediately() {
+
         return type == TYPE_IMMEDIATELY;
     }
 

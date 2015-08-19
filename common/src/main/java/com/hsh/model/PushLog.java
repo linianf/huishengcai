@@ -2,6 +2,7 @@ package com.hsh.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,9 +17,11 @@ public class PushLog {
     private long id;
 
     // 创建人
+    @Column(name = "user_id")
     private long userId;
 
     // 推送时间
+    @Column(name = "send_time")
     private Date sendTime;
 
     // 推送内容
