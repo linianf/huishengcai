@@ -57,4 +57,8 @@ public class UserServiceImpl implements UserService{
 		return userId;
 	}
 
+	@Override
+	public int  getTotalUser(){
+		return userDao.getTotalUser();
+	}
 }

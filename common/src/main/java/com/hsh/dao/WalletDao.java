@@ -22,6 +22,8 @@ public interface WalletDao {
 	
 	int getUserTotalGain(int userId);
 	
+	int getUserTotalEarn();
+	
 	void  addUserWallet(int userId,int amount);
 	
 	List<Wallet> getWalletList(int lastMinId,int pageSize);

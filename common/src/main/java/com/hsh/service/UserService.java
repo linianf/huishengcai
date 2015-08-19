@@ -15,4 +15,6 @@ public interface UserService {
 	HSCUser  getUserById(String mobile);
 	
 	List<HSCUser> getUsersRecommend(int userId);
+	
+	int  getTotalUser();
 }

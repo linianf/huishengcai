@@ -83,6 +83,14 @@ public class WalletDaoImpl implements WalletDao{
 		              .iterate().next();
 		return num.intValue();
 	}
+	
+	@Override
+	public int getUserTotalEarn() {
+		String hql = "select sum(amount) from WalletFlow where  inOut=1";
+		Number num = (Number)sessionFactory.getCurrentSession().createQuery(hql)
+		              .iterate().next();
+		return num.intValue();
+	}
 
 	@Override
 	public void addUserWallet(int userId, int amount) {

@@ -22,6 +22,8 @@ public interface WalletService {
 	
 	int getUserTotalGain(int userId);
 	
+	int getUserTotalEarn();
+	
 	Wallet getWalletByUserId(int userId);
 	
 	void  addUserWallet(int userId,int amount, int flowType);

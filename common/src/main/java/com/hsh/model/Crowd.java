@@ -34,6 +34,8 @@ public class Crowd {
 	
 	private  int  maxRate;
 	
+	private  int  orderValue;//排序值，用于后台置顶功能，从redis自增序列获得值
+	
 	private  int  targetMoney;//目标金额
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -136,5 +138,13 @@ public class Crowd {
 
 	public void setMaxRate(int maxRate) {
 		this.maxRate = maxRate;
+	}
+	
+	public int getOrderValue() {
+		return orderValue;
+	}
+
+	public void setOrderValue(int orderValue) {
+		this.orderValue = orderValue;
 	}
 }

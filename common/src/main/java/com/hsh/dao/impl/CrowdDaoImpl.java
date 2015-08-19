@@ -3,6 +3,7 @@ package com.hsh.dao.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -76,4 +77,41 @@ public class CrowdDaoImpl implements CrowdDao{
 		return num.intValue();
 	}
 	
+	public Crowd  getHotRecommend(){
+		String hql = " from Crowd where crowdStartDate<:startDate and endDate>:endDate order by orderValue desc";
+		Date now = new Date();
+		return (Crowd)sessionFactory.getCurrentSession().createQuery(hql).setDate("startDate", now)
+				.setDate("endDate", now).setMaxResults(1).uniqueResult();
+	}
+	
+	public Crowd  getPreRecommend(){
+		String hql = " from Crowd where crowdStartDate>:startDate order by orderValue desc";
+		Date now = new Date();
+		return (Crowd)sessionFactory.getCurrentSession().createQuery(hql).setDate("startDate", now)
+				.setDate("endDate", now).setMaxResults(1).uniqueResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Crowd>  getHotRecommendList(int lastMinId, int pageSize){
+		String hql = " from Crowd where crowdStartDate<:startDate and endDate>:endDate ";
+		if(lastMinId!=0){
+			hql = hql + " and orderValue <:lastMinId ";
+		}
+		hql = hql + " order by orderValue desc ";
+		Date now = new Date();
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query = query.setDate("startDate", now).setDate("endDate", now);
+		if(lastMinId!=0){
+			query = query.setInteger("lastMinId", lastMinId);
+		}
+		return (List<Crowd>)query.list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Crowd>  getPreRecommendList(){
+		String hql = " from Crowd where crowdStartDate<:startDate and endDate>:endDate order by orderValue desc";
+		Date now = new Date();
+		return (List<Crowd>)sessionFactory.getCurrentSession().createQuery(hql).setDate("startDate", now)
+				.setDate("endDate", now).list();
+	}
 }

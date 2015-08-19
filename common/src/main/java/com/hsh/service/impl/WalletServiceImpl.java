@@ -101,4 +101,9 @@ public class WalletServiceImpl implements WalletService{
 		return walletDao.getWalletByUserId(userId);
 	}
 
+	@Override
+	public int getUserTotalEarn() {
+		return walletDao.getUserTotalEarn();
+	}
+
 }

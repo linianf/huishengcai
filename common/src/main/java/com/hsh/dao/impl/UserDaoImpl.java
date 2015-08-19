@@ -45,4 +45,11 @@ public class UserDaoImpl implements UserDao{
 	    return list;
 	}
 
+	@Override
+	public int getTotalUser() {
+		String hql = " select count(*) from HSCUser ";
+		Number num = (Number)sessionFactory.getCurrentSession().createQuery(hql).uniqueResult();
+	    return num.intValue();
+	}
+
 }
