@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -197,6 +198,11 @@ public class HSHUtil {
 		}
         return null; 
 	}
+	
+	public static Date now() {
+
+        return Calendar.getInstance(Locale.CHINESE).getTime();
+    }
 	
 	/**
 	 * 计算当前日期所在月的第一天 0点0分0秒
