@@ -1,0 +1,19 @@
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	
+	<definition name="empty.page" template="/emptyTemplate.jsp">
+	</definition>
+	
+	<definition name="sms.login" extends="empty.page">
+		<put-attribute name="title" value="睢宁康复医院-短信后台" />
+		<put-attribute name="body" value="/index.jsp" />
+	</definition>
+	<definition name="sms.ba" extends="empty.page">
+		<put-attribute name="title" value="睢宁康复医院-短信后台" />
+		<put-attribute name="body" value="/list.jsp" />
+	</definition>
+	
+</tiles-definitions>
