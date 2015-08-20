@@ -27,7 +27,8 @@ public interface SetUpInfoService {
      * @return
      * @throws DataValidateException
      */
-    SetUpInfo getSetUpInfoByKey(String key) throws DataValidateException;
+    SetUpInfo getSetUpInfoById(int id) throws DataValidateException;
 
     List <SetUpInfo> listSetUpInfo() throws DataValidateException;
+
 }

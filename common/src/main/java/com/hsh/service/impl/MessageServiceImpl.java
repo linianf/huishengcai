@@ -54,4 +54,11 @@ public class MessageServiceImpl implements MessageService {
         return messageDao.listMessage(params);
     }
 
+    @Override
+    public Message getMessageById(long parseLong) throws DataValidateException {
+
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }

@@ -12,7 +12,7 @@ import com.hsh.exception.DataValidateException;
 import com.hsh.model.SetUpInfo;
 
 @SuppressWarnings("unchecked")
-@Repository(value="setUpInfoDao")
+@Repository(value = "setUpInfoDao")
 public class SetUpInfoDaoImpl implements SetUpInfoDao {
 
     @Autowired
@@ -39,12 +39,12 @@ public class SetUpInfoDaoImpl implements SetUpInfoDao {
     }
 
     @Override
-    public SetUpInfo getSetUpInfoByKey(String key) throws DataValidateException {
+    public SetUpInfo getSetUpInfoById(int id) throws DataValidateException {
 
         try {
-            StringBuffer hql = new StringBuffer("from SetUpInfo where key =: key");
+            StringBuffer hql = new StringBuffer("from SetUpInfo where id =: id");
             Query query = sessionFactory.getCurrentSession().createQuery(hql.toString());
-            List <SetUpInfo> list = query.setString("key", key).list();
+            List <SetUpInfo> list = query.setInteger("id", id).list();
             return (list != null && list.size() > 0) ? list.get(0) : null;
         } catch (Exception e) {
             throw new DataValidateException("数据库异常");

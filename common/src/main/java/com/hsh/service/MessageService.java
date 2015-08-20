@@ -26,11 +26,11 @@ public interface MessageService {
 
     /**
      * 
-     * @param params
-     *          pageSize  每页显示条数
-     *          minId   最小id
+     * @param params pageSize 每页显示条数 minId 最小id
      * @return list
      * @throws DataValidateException
      */
-    List<Message> listMessage(Map <String, Object> params) throws DataValidateException;
+    List <Message> listMessage(Map <String, Object> params) throws DataValidateException;
+
+    Message getMessageById(long parseLong) throws DataValidateException;
 }

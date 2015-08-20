@@ -29,9 +29,9 @@ public class SetUpInfoServiceImpl implements SetUpInfoService {
     }
 
     @Override
-    public SetUpInfo getSetUpInfoByKey(String key) throws DataValidateException {
+    public SetUpInfo getSetUpInfoById(int id) throws DataValidateException {
 
-        return setUpInfoDao.getSetUpInfoByKey(key);
+        return setUpInfoDao.getSetUpInfoById(id);
     }
 
     @Override

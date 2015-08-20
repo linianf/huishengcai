@@ -7,4 +7,12 @@
   </parent>
   <artifactId>ba</artifactId>
   <packaging>war</packaging>
+  <dependencies>
+        <dependency>
+			<groupId>com.hsh</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0</version>
+		</dependency>
+  </dependencies>
+  
 </project>

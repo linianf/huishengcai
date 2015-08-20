@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 @Entity
 public class SetUpInfo {
 
-    private String key;
+    private int id;
 
     private String name;
 
@@ -27,29 +27,29 @@ public class SetUpInfo {
         super();
     }
 
-    public SetUpInfo(String name, String key, String content, long userId, Date createTime) {
+    public SetUpInfo(String name, int id, String content, long userId, Date createTime) {
 
         super();
         this.name = name;
-        this.key = key;
+        this.id = id;
         this.content = content;
         this.userId = userId;
         this.createTime = createTime;
     }
 
-    public String getKey() {
-
-        return key;
-    }
-
-    public void setKey(String key) {
-
-        this.key = key;
-    }
-
     public String getContent() {
 
         return content;
+    }
+
+    public int getId() {
+
+        return id;
+    }
+
+    public void setId(int id) {
+
+        this.id = id;
     }
 
     public void setContent(String content) {

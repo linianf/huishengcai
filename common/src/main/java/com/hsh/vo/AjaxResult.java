@@ -64,5 +64,12 @@ public class AjaxResult {
 		return new AjaxResult(CODE_SUCCESS, obj, "ok");
 	}
 	
-}
+	public static final AjaxResult success() {
+        return new AjaxResult(CODE_SUCCESS, null, null);
+    }
 
+    public static final AjaxResult success(Object data, String message) {
+        return new AjaxResult(CODE_SUCCESS, data, message);
+    }
+	
+}
