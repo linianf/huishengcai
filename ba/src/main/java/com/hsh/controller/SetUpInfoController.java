@@ -21,7 +21,7 @@ public class SetUpInfoController extends ABaseController {
 
     @RequestMapping("/index")
     public ModelAndView toSetUpIndex() {
-
+ 
         return null;
     }
 
