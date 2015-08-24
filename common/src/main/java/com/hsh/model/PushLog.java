@@ -10,7 +10,9 @@ import javax.persistence.Id;
 import org.hibernate.annotations.Entity;
 
 @Entity
-public class PushLog {
+public class PushLog extends ABaseEntity {
+
+    private static final long serialVersionUID = 8232600883309479699L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

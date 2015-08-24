@@ -12,7 +12,9 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Entity;
 
 @Entity
-public class Message {
+public class Message extends ABaseEntity {
+
+    private static final long serialVersionUID = -6561985721371787008L;
 
     // 主键
     @Id
