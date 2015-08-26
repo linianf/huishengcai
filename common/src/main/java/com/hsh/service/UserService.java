@@ -3,6 +3,7 @@ package com.hsh.service;
 import java.util.List;
 
 import com.hsh.model.HSCUser;
+import com.hsh.model.User;
 
 public interface UserService {
 
@@ -17,4 +18,6 @@ public interface UserService {
 	List<HSCUser> getUsersRecommend(int userId);
 	
 	int  getTotalUser();
+
+    User getUserByUsername(String username);
 }

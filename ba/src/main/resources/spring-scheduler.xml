@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/task
+                        http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+	
+	<!-- <bean id="orderScheduler" class="com.qianbao.baochou.scheduler.OrderScheduler" />
+	<bean id="transactionPriceLogScheduler" class="com.qianbao.baochou.scheduler.TransactionPriceLogScheduler" />
+
+	<task:scheduler id="orderSr" pool-size="1" />
+	<task:scheduler id="transactionPriceLogSr" pool-size="1" />
+
+	fixed-delay 单位为毫秒
+	<task:scheduled-tasks scheduler="orderSr">
+		<task:scheduled ref="orderScheduler" method="execute" fixed-delay="${orderScheduler.fixedDelay}" />
+	</task:scheduled-tasks>
+	
+	每天交易最后一笔价格，每天22点每10分钟执行一次
+	<task:scheduled-tasks scheduler="transactionPriceLogSr">
+		<task:scheduled ref="transactionPriceLogScheduler" method="execute" cron="0 0/10 22 * * ?" />
+	</task:scheduled-tasks>
+ -->
+</beans>

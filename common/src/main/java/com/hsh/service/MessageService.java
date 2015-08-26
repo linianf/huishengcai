@@ -33,4 +33,20 @@ public interface MessageService {
     List <Message> listMessage(Map <String, Object> params) throws DataValidateException;
 
     Message getMessageById(long parseLong) throws DataValidateException;
+
+    /***
+     * 根据条件查询需要推送的消息
+     * 
+     * @param params
+     * @return
+     * @throws DataValidateException 
+     */
+    List <Message> getMessageListByParams(Map <String, Object> params) throws DataValidateException;
+
+    /**
+     * 推送消息
+     * @param message
+     * @throws DataValidateException
+     */
+    void pushMessage(Message message) throws DataValidateException;
 }

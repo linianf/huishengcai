@@ -38,7 +38,7 @@ public class SetUpInfoController extends ABaseController {
     }
 
     @RequestMapping("/getSetUpInfoById")
-    public AjaxResult getSetUpInfoById(@RequestParam(value = "id", required = false) String id) {
+    public AjaxResult getSetUpInfoById(@RequestParam(value = "id") String id) {
 
         try {
             return AjaxResult.success(setUpInfoService.getSetUpInfoById(Integer.parseInt(id)));

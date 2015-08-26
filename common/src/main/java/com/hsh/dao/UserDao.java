@@ -3,6 +3,7 @@ package com.hsh.dao;
 import java.util.List;
 
 import com.hsh.model.HSCUser;
+import com.hsh.model.User;
 
 
 public interface UserDao {
@@ -16,5 +17,12 @@ public interface UserDao {
 	List<HSCUser> getUsersRecommend(int userId);
 
 	int getTotalUser();
+
+	/**
+	 * 根据用户名查询后台用户
+	 * @param username
+	 * @return
+	 */
+    User getUserByUsername(String username);
 	
 }

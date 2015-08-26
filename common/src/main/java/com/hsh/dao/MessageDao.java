@@ -14,4 +14,6 @@ public interface MessageDao {
 
     List <Message> listMessage(Map <String, Object> params) throws DataValidateException;
 
+    List <Message> getMessageListByParams(Map <String, Object> params) throws DataValidateException;
+
 }

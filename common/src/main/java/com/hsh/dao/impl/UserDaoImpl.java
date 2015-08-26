@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.hsh.dao.UserDao;
 import com.hsh.model.HSCUser;
+import com.hsh.model.User;
 
 @Repository("userDao")
 public class UserDaoImpl implements UserDao{
@@ -51,5 +52,12 @@ public class UserDaoImpl implements UserDao{
 		Number num = (Number)sessionFactory.getCurrentSession().createQuery(hql).uniqueResult();
 	    return num.intValue();
 	}
+
+    @Override
+    public User getUserByUsername(String username) {
+
+        String hql = "from User where username=:username";
+        return (User) sessionFactory.getCurrentSession().createQuery(hql).setString("username", username).uniqueResult();
+    }
 
 }

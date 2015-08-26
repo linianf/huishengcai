@@ -242,6 +242,14 @@ public class HSHUtil {
 		return null;
 	}
 	
+	public static Date minuteAfter(Date baseDate, int increaseMonths) {
+
+        Calendar calendar = Calendar.getInstance(Locale.CHINESE);
+        calendar.setTime(baseDate);
+        calendar.add(Calendar.MINUTE, increaseMonths);
+        return calendar.getTime();
+    }
+	
 	
     public static void main(String[] args){
     	System.out.println(HSHUtil.calacDaysFrom2beforeToday(new Date()));

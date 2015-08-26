@@ -9,6 +9,14 @@
 		</listener-class>
 	</listener>
 
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+				classpath*:spring/spring-security.xml,
+				classpath*:spring/spring-controller.xml
+		</param-value>
+	</context-param>
+
 	<filter>
 		<filter-name>SetCharacterEncoding</filter-name>
 		<filter-class>
@@ -33,10 +41,12 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				classpath:spring-controllers.xml
+				classpath*:spring/spring-security.xml,
+				classpath*:spring/spring-controller.xml
 			</param-value>
 		</init-param>
 	</servlet>
+	
 
 	<servlet-mapping>
 		<servlet-name>hsh</servlet-name>

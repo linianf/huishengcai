@@ -8,8 +8,9 @@ import org.hibernate.annotations.Entity;
 
 /**
  * 法律意见书
+ * 
  * @author lengxiangwu
- *
+ * 
  */
 @Entity
 public class LegalOpinion extends ABaseEntity {

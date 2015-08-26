@@ -57,8 +57,21 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public Message getMessageById(long parseLong) throws DataValidateException {
 
-        // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public List <Message> getMessageListByParams(Map <String, Object> params) throws DataValidateException {
+
+        return messageDao.getMessageListByParams(params);
+    }
+    
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void pushMessage(Message message) throws DataValidateException{
+        message.setState(Message.STATE_SENT);
+        this.updateMessage(message);
     }
 
 }

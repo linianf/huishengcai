@@ -1,5 +1,7 @@
 package com.hsh.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 
 /**
@@ -19,7 +21,11 @@ public class RateConfig {
 	
 	private int minValue;
 	
-	private double ratePerDay;
+	private int userId;
+
+    private double ratePerDay;
+    
+    private Date createTime;
 	
 	public int getMaxValue() {
 		return maxValue;
@@ -60,4 +66,26 @@ public class RateConfig {
 	public void setRatePerDay(double ratePerDay) {
 		this.ratePerDay = ratePerDay;
 	}
+	
+    public int getUserId() {
+        
+        return userId;
+    }
+    
+    public void setUserId(int userId) {
+    
+        this.userId = userId;
+    }
+
+    
+    public Date getCreateTime() {
+    
+        return createTime;
+    }
+    
+    public void setCreateTime(Date createTime) {
+    
+        this.createTime = createTime;
+    }
+
 }

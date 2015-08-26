@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hsh.dao.UserDao;
 import com.hsh.model.HSCUser;
+import com.hsh.model.User;
 import com.hsh.service.UserService;
 
 /**
@@ -61,4 +62,10 @@ public class UserServiceImpl implements UserService{
 	public int  getTotalUser(){
 		return userDao.getTotalUser();
 	}
+
+    @Override
+    public User getUserByUsername(String username) {
+
+        return userDao.getUserByUsername(username);
+    }
 }

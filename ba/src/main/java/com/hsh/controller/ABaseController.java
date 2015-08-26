@@ -12,8 +12,8 @@ public abstract class ABaseController {
         return "";
     }
 
-    public long getCurrentUserId() {
+    public int getCurrentUserId() {
 
-        return 0L;
+        return 0;
     }
 }
