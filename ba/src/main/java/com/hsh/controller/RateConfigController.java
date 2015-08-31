@@ -3,12 +3,16 @@ package com.hsh.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.hsh.exception.DataValidateException;
 import com.hsh.model.RateConfig;
 import com.hsh.service.RateConfigService;
@@ -19,6 +23,7 @@ import com.hsh.vo.AjaxResult;
 @RequestMapping("/rateConfig")
 public class RateConfigController extends ABaseController {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(RateConfigController.class);
     @Autowired
     private RateConfigService rateConfigService;
 
@@ -34,9 +39,11 @@ public class RateConfigController extends ABaseController {
         try {
             return AjaxResult.success(rateConfigService.listRateConfig(null));
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
-            return AjaxResult.failed("程序异常");
+            LOGGER.error(e.getMessage(), e);
+            return AjaxResult.failed("系统异常");
         }
     }
 
@@ -54,9 +61,11 @@ public class RateConfigController extends ABaseController {
         } catch (NumberFormatException e) {
             return AjaxResult.failed("参数有误");
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
-            return AjaxResult.failed("程序异常");
+            LOGGER.error(e.getMessage(), e);
+            return AjaxResult.failed("系统异常");
         }
     }
 
@@ -68,9 +77,11 @@ public class RateConfigController extends ABaseController {
             fillUserIdAndCreateTime(rateConfig, getCurrentUserId());
             return AjaxResult.success("新增成功");
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
-            return AjaxResult.failed("程序异常");
+            LOGGER.error(e.getMessage(), e);
+            return AjaxResult.failed("系统异常");
         }
     }
 
@@ -86,9 +97,11 @@ public class RateConfigController extends ABaseController {
             rateConfigService.updateRateConfig(rateConfig);
             return AjaxResult.success("修改成功");
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
-            return AjaxResult.failed("程序异常");
+            LOGGER.error(e.getMessage(), e);
+            return AjaxResult.failed("系统异常");
         }
     }
 

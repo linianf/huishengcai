@@ -2,25 +2,21 @@ package com.hsh.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.hsh.exception.DataValidateException;
-import com.hsh.model.InvestmentPlan;
-import com.hsh.model.LegalOpinion;
 import com.hsh.model.Project;
-import com.hsh.model.ProjectIntroduction;
 
 public interface ProjectService {
 
     /**
      * 添加项目
-     * 
-     * @param project 项目详情
-     * @param introduction 项目介绍
-     * @param planList 投资计划列表
-     * @param legalOpinion 法律意见书
-     * @return 项目ID
+     * @param project
+     * @param file
+     * @return
      * @throws DataValidateException
      */
-    long addProject(Project project, ProjectIntroduction introduction, List <InvestmentPlan> planList, LegalOpinion legalOpinion) throws DataValidateException;
+    long addProject(Project project, MultipartFile file) throws DataValidateException;
 
     /**
      * 修改项目详情

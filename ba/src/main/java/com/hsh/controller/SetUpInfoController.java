@@ -1,5 +1,7 @@
 package com.hsh.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +18,8 @@ import com.hsh.vo.AjaxResult;
 @RequestMapping("/setUp")
 public class SetUpInfoController extends ABaseController {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(SetUpInfoController.class);
+
     @Autowired
     private SetUpInfoService setUpInfoService;
 
@@ -31,8 +35,10 @@ public class SetUpInfoController extends ABaseController {
         try {
             return AjaxResult.success(setUpInfoService.listSetUpInfo());
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed("程序异常");
         }
     }
@@ -45,8 +51,10 @@ public class SetUpInfoController extends ABaseController {
         } catch (NumberFormatException e) {
             return AjaxResult.failed("参数有误");
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed("程序异常");
         }
     }
@@ -60,8 +68,10 @@ public class SetUpInfoController extends ABaseController {
             setUpInfoService.addSetUpInfo(setUpInfo);
             return AjaxResult.success("新增成功");
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed("程序异常");
         }
     }
@@ -75,8 +85,10 @@ public class SetUpInfoController extends ABaseController {
             setUpInfoService.updateSetUpInfo(setUpInfo);
             return AjaxResult.success("修改成功");
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed("程序异常");
         }
     }

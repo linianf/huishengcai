@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +22,8 @@ import com.hsh.vo.AjaxResult;
 @Controller
 @RequestMapping("/message")
 public class MessageController extends ABaseController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MessageController.class);
 
     @Autowired
     private MessageService messageService;
@@ -44,9 +48,11 @@ public class MessageController extends ABaseController {
         } catch (NumberFormatException e) {
             return AjaxResult.failed("参数异常");
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
-            return AjaxResult.failed("程序异常");
+            LOGGER.error(e.getMessage(), e);
+            return AjaxResult.failed("系统异常");
         }
     }
 
@@ -58,9 +64,11 @@ public class MessageController extends ABaseController {
         } catch (NumberFormatException e) {
             return AjaxResult.failed("选择有误，请重新选择");
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
-            return AjaxResult.failed("程序异常");
+            LOGGER.error(e.getMessage(), e);
+            return AjaxResult.failed("系统异常");
         }
     }
 
@@ -73,9 +81,11 @@ public class MessageController extends ABaseController {
             messageService.updateMessage(message);
             return AjaxResult.success("修改推送信息成功");
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
-            return AjaxResult.failed("程序异常");
+            LOGGER.error(e.getMessage(), e);
+            return AjaxResult.failed("系统异常");
         }
     }
 
@@ -88,9 +98,11 @@ public class MessageController extends ABaseController {
             messageService.addMessage(message);
             return AjaxResult.success("新增推送信息成功");
         } catch (DataValidateException e) {
+            LOGGER.error(e.getMessage(), e);
             return AjaxResult.failed(e.getMessage());
         } catch (Exception e) {
-            return AjaxResult.failed("程序异常");
+            LOGGER.error(e.getMessage(), e);
+            return AjaxResult.failed("系统异常");
         }
     }
 

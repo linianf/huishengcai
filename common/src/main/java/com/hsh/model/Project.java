@@ -52,6 +52,13 @@ public class Project extends ABaseEntity {
     // 罚金
     private long forfeit;
 
+    // 图片地址
+    private String imgUrl;
+
+    private int userId;
+
+    private Date createTime;
+
     public static final int RECOMMENDED_YES = 1;
 
     public static final int RECOMMENDED_NO = 0;
@@ -185,5 +192,35 @@ public class Project extends ABaseEntity {
     public void setState(int state) {
 
         this.state = state;
+    }
+
+    public String getImgUrl() {
+
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+
+        this.imgUrl = imgUrl;
+    }
+
+    public int getUserId() {
+
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+
+        this.userId = userId;
+    }
+
+    public Date getCreateTime() {
+
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+
+        this.createTime = createTime;
     }
 }

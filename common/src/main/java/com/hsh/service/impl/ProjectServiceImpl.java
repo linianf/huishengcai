@@ -7,13 +7,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.hsh.dao.ProjectDao;
 import com.hsh.exception.DataValidateException;
-import com.hsh.model.InvestmentPlan;
-import com.hsh.model.LegalOpinion;
 import com.hsh.model.Project;
-import com.hsh.model.ProjectIntroduction;
 import com.hsh.service.InvestmentPlanService;
 import com.hsh.service.LegalOpinionService;
 import com.hsh.service.ProjectIntroductionService;
@@ -36,25 +34,33 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public long addProject(Project project, ProjectIntroduction introduction, List <InvestmentPlan> planList, LegalOpinion legalOpinion) throws DataValidateException {
+    public long addProject(Project project, MultipartFile file) throws DataValidateException {
 
-        long projectId = projectDao.addProject(project);
-
-        introduction.setProjectId(projectId);
-        projectIntroductionService.addProjectIntroduction(introduction);
-
-        for (InvestmentPlan investmentPlan : planList) {
-            investmentPlan.setProjectId(projectId);
+        if(file.getSize() > 0){
+            //保存图片
+            //压缩图片
+            
+            
         }
-
-        investmentPlanService.addInvestmentPlanList(planList);
-
-        legalOpinion.setProjectId(projectId);
-        legalOpinionService.addLegalOpinion(legalOpinion);
+        project.setImgUrl("");
+        long projectId = projectDao.addProject(project);
+        
+        
+//        introduction.setProjectId(projectId);
+//        projectIntroductionService.addProjectIntroduction(introduction);
+//
+//        for (InvestmentPlan investmentPlan : planList) {
+//            investmentPlan.setProjectId(projectId);
+//        }
+//
+//        investmentPlanService.addInvestmentPlanList(planList);
+//
+//        legalOpinion.setProjectId(projectId);
+//        legalOpinionService.addLegalOpinion(legalOpinion);
 
         return projectId;
     }
-
+    
     @Override
     public void updateProject(Project project) throws DataValidateException {
 
